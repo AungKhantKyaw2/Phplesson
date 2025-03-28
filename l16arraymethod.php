@@ -17,6 +17,9 @@ $vehicles =["toyota","ford","audi","mazda","suzuki","ford","mazda","bmw"];
 echo count($vehicles);//8
 
 
+//=Sizeof(array) Function
+$colors=["red","green","blue","yellow","pink"];
+echo sizeof($colors);//5
 //=> array_count_values(array) Function
 $cars =["toyota","ford","audi","madza"];
 echo "<pre>".print_r(array_count_values($cars),true)."</pre>"; //( [toyota] => 1[ford] => 1[audi] => 1[madza] => 1)
@@ -213,6 +216,20 @@ function calfun($total,$val){
 
 echo array_reduce($nums,"calfun",0);//60
 
+
+//array_sum(array) Function
+$nums = [10,20,30,40,50];
+echo array_sum($nums);//150
+
+$nums = [10,20,30,"40",-50];
+echo array_sum($nums);//50
+
+$nums = ["a"=>10.2,"b"=>20.3,"c"=>30.3];
+echo array_sum($nums);//60.8
+
+
+
+
 //=>array_search(value,array) Function
 
 $myarrs = ["a","b","c","d","e"];
@@ -225,6 +242,34 @@ echo array_search("green",$myarrs);//b
 $colors=["red","green","blue"];
 array_pop($colors);
 echo "<pre>".print_r($colors,true)."</pre>";//( [0] => red [1] => green)
+
+//=>array_shift() Function
+$colors=["red","green","blue"];
+array_shift($colors);
+echo "<pre>".print_r($colors,true)."</pre>";//( [0] => green [1] => blue)
+
+$colors=["a"=>"red","b"=>"green","c"=>"blue","d"=>"violet"];
+array_shift($colors);
+echo "<pre>".print_r($colors,true)."</pre>";//( [b] => green [c] => blue [d] => violet)
+
+// =>unset(arrayindex) Function and array_values(array)
+$colors=["red","green","blue"];
+// unset($colors[1]);
+// echo "<pre>".print_r($colors,true)."</pre>";//[0] => red [2] => blue
+
+// unset($colors[1]);
+// echo "<pre>".print_r(array_values($colors),true)."</pre>";//[0] => red [1] => blue
+$colors=["a"=>"red","b"=>"green","c"=>"blue","d"=>"violet","e"=>"pink"];
+echo "<pre>".print_r(array_values($colors),true)."</pre>";
+unset($colors["c"]);
+echo "<pre>".print_r(array_values($colors),true)."</pre>";//[0] => red[1] => green[2] => violet [3] => pink
+
+
+$infos =["name"=>"aung aung","age"=>20,"city"=>"Yangon"];
+unset($infos["age"]);
+echo "<pre>".print_r(array_values($infos),true)."</pre>";//[0] => aung aung [1] => Yangon
+
+
 
 // =>array_unshift(array,value1,value2,value3,...) Function
 
@@ -258,4 +303,155 @@ array_push($colors,"silver","violet");
 echo "<pre>".print_r($colors,true)."</pre>";//([a] => red [b] => green [c] => blue [0] => silver [1] => violet)
 
 
+
+//=>array_slice(array,offset/index) Function
+//=>array_slice(array,offset/index,length) Function
+//=>array_slice(array,offset/index,length,preserve) Function
+$candycolors=["red","green","blue","yellow","pink"];
+echo "<pre>".print_r(array_slice($candycolors,0),true)  ."</pre>"; //[red to pink]
+echo "<pre>".print_r(array_slice($candycolors,2),true)  ."</pre>";//[blue to pink]
+
+echo "<pre>".print_r(array_slice($candycolors,0,2),true)  ."</pre>"; // red to green
+echo "<pre>".print_r(array_slice($candycolors,2,2),true)  ."</pre>"; //blue to yellow
+echo "<pre>".print_r(array_slice($candycolors,2,5),true)  ."</pre>"; //blue to pink
+
+echo "<pre>".print_r(array_slice($candycolors,2,5,false),true)  ."</pre>"; //[0] => blue [1] => yellow [2] => pink
+echo "<pre>".print_r(array_slice($candycolors,2,5,true),true)  ."</pre>"; //[2] => blue [3] => yellow [4] => pink
+
+ 
+//=>array_splice(array,index) Function
+//=>array_slice(array,index,length) Function
+//=>array_slice(array,index,length,array) Function
+
+$shirtcolors=["red","green","blue","yellow","pink"];
+
+echo "<pre>".print_r(array_splice($shirtcolors,0),true)."</pre>";//[red to pink]
+echo "<pre>".print_r(array_splice($shirtcolors,2),true)."</pre>";//[blue to pink]
+
+echo "<pre>".print_r(array_splice($shirtcolors,0,2),true)  ."</pre>";//[0] => red [1] => green
+echo "<pre>".print_r(array_splice($shirtcolors,2,2),true)  ."</pre>";//[0] => blue [1] => yellow
+echo "<pre>".print_r(array_splice($shirtcolors,2,5),true)  ."</pre>";//[0] => blue[1] => yellow [2] => pink
+
+$males=["aung aung","maung maung","kyaw kyaw","zaw zaw","maung maung"];
+$females=["su su","yu yu","nu nu"];
+
+
+array_splice($males,0,2,$females);
+echo "<pre>".print_r($males,true) ."</pre>"; //[0] => su su[1] => yu yu[2] => nu nu  [3] => kyaw kyaw[4] => zaw zaw[5] => maung maung
+
+
+
+array_splice($males,0,3,$females);
+echo "<pre>".print_r($males,true) ."</pre>"; //[0] => su su[1] => yu yu[2] => nu nu[3] => zaw zaw [4] => maung maung
+
+
+array_splice($males,1,3,$females);
+echo "<pre>".print_r($males,true)."</pre>";//[0] => aung aung[1] => su su[2] => yu yu[3] => nu nu [4] => maung maung
+
+
+
+//=> array_unique(array) Function
+$num=[10,20,30,50,10,30,60,70,80,10];
+echo "<pre>".print_r(array_unique($num),true) ."</pre>";//[0] => 10    [1] => 20    [2] => 30 [3] => 50    [6] => 60    [7] => 70   [8] => 80
+
+
+$colors =["a"=>"red", "b"=>"green","c"=>"blue","d"=>"red","e"=>"blue"];
+echo "<pre>".print_r(array_unique($colors),true) ."</pre>";//  [a] => red[b] => green [c] => blue
+
+
+// =>array_walk(array,callbackfunction) Function 
+// =>array_walk(array,callbackfunction,parameter )
+
+
+$colors =["a"=>"red", "b"=>"green","c"=>"blue","d"=>"pink","e"=>"violet"];
+
+function myfunone($val,$key){
+    echo "key is = $key and Value is $val";
+}
+
+array_walk($colors,"myfunone");//key is = a and Value is redkey is = b and Value is greenkey is = c and Value is bluekey is = d and Value is pinkkey is = e and Value is violet
+
+function myfuntwo($val,$key,$p){
+    echo "key is = $key and Value is $val $p.";
+}
+
+
+array_walk($colors,"myfuntwo","color");//key is = a and Value is red color.key is = b and Value is green color.key is = c and Value is blue color.key is = d and Value is pink color.key is = e and Value is violet color.
+
+$colors =["a"=>"red", "b"=>"green","c"=>"blue","d"=>"pink","e"=>"violet"];
+function myfunthree(&$val){
+    $val ="orange";
+    return $val;
+}
+array_walk($colors,"myfunthree");
+echo "<pre>".print_r($colors,true).".</pre>";//    [a] => orange[b] => orange[c] => orange[d] => orange [e] => orange
+
+
+// compact(var1,var2,var3,...) Function 
+$name ="Aung Aung";
+$age ="25";
+$city ="Yangon";
+
+$result=compact("name","age","city");
+echo "<pre>".print_r($result,true).".</pre>";//  [name] => Aung Aung [age] => 25 [city] => Yangon
+
+
+// range(start,end,step) Function
+// range(start,end) Function
+
+
+$num1 = range(0,5);
+echo "<pre>".print_r($num1,true)."</pre>";//( [0] => 0 [1] => 1 [2] => 2 [3] => 3 [4] => 4 [5] => 5)
+
+$num2 = range(0,50,10);
+echo "<pre>".print_r($num2,true)."</pre>";//( [0] => 0 [1] => 10 [2] => 20 [3] => 30 [4] => 40 [5] => 50)
+
+$char1 = range("a","k");
+echo "<pre>".print_r($char1,true)."</pre>";//  [0] => a [1] => b [2] => c .....[10] => k
+
+$char1 = range("k","g");
+echo "<pre>".print_r($char1,true)."</pre>";//[0] => k [1] => j [2] => i [3] => h [4] => g
+
+// current(),pos(),end(),next(),prev(),reset() Function
+$students =["aung aung","maung maung","zaw zaw","tun tun","kyaw kyaw"];
+// echo current($students);//aung aung
+// echo pos($students);//aung aung
+
+// echo end($students);//kyaw kyaw
+// echo current($students);//kyaw kyaw
+
+
+// echo current($students);//aung aung
+// echo next($students);//maung maung
+// echo current($students);//maung maung
+// echo next($students);//zaw zaw
+// echo prev($students);//maung maung
+
+echo end($students);//kyaw kyaw
+echo current($students);//kyaw kyaw
+echo prev($students);//zaw zaw
+
+echo reset($students);//aung aung
+echocurrent($students);//aung aung
+
+
+// serialize() ,unserialize()  Function
+
+$staffs=[
+    ["aung aung","maung manung","kyaw kyaw","tun tun","zaw zaw"],
+    ["su su","nu nu","yu yu","aye aye","hla hla"],
+];
+
+echo "<pre>".print_r($staffs,true)."</pre>";//( [0] => Array ( [0] => aung aung [1] => maung manung [2] => kyaw kyaw [3] => tun tun [4] => zaw zaw ) [1] => Array ( [0] => su su [1] => nu nu [2] => yu yu [3] => aye aye [4] => hla hla ) )
+
+$serialdatas = serialize($staffs);
+echo $serialdatas;
+var_dump($serialdatas);//string(103) "a:2:{i:0;a:5:{i:0;s:9:"aung aung";i:1;s:11:"maung manung";i:2;s:9:"kyaw kyaw";i:3;s:8:"tun tun";i:4;s:8:"zaw zaw";}i:1;a:5:{i:0;s:5:"su su";i:1;s:5:"nu nu";i:2;s:5:"yu yu";i:3;s:8:"aye aye";i:4;s:7:"hla hla";}}"
+
+$unseridatas=unserialize($serialdatas);
+echo "<pre>".print_r($unseridatas,true)."</pre>";//( [0] => Array ( [0] => aung aung [1] => maung manung [2] => kyaw kyaw [3] => tun tun [4] => zaw zaw ) [1] => Array ( [0] => su su [1] => nu nu [2] => yu yu [3] => aye aye [4] => hla hla ) )
 ?>
+
+
+
+
