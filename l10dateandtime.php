@@ -106,7 +106,6 @@ echo "This is format U=" .$date;//This is format U=1741431774 miliseconds
 
 $date =date("y",$time);
 echo "This is format y=" .$date; // year //24
-
 $date =date("Y",$time);
 echo "This is format y=" .$date; //year//2024
 
@@ -115,7 +114,39 @@ echo "This is format y=" .$date; // year //24
 
 $date =date("z",$time);
 echo "This is format z=" .$date; //This is format z=66 // day of the year
+
+
+//=>date_create(time,optional,timezone) with dateformat(timestamp,"Y/m/d") with date_diff(new,old)
+     //eg  date_create(timestamp,timezone_open("Asia/Yangon"))
+
+     $date1 =date_create(("10-01-2025"));
+     echo date_format($date1,"Y/m/d"); //2025/01/10
+     $date2 =date_create(("01-04-2025"));
+     echo date_format($date1,"Y-m-d");    //2025-01-10 04 or 4 is ok.
+
+
+     $diffone= date_diff($date2,$date1);
+     echo $diffone->format("%d days");//10 days
+     echo $diffone->format("%m months");//4 months
+        echo $diffone->format("%y years");// 0 years
+      echo $diffone->format("%Y years");  //00 years
+
+    $date3= "{$getdate['mday']}-{$getdate['mon']}-{$getdate['year']}";
+    echo $date3; //14-4-2025
+    $date4= date_create($date3);
+    echo date_format($date4,"Y-m-d"); //2025-04-14
+    $difftwo = date_diff($date4,$date2);
+    echo $difftwo->format("%d days");//13days
+    echo $difftwo->format("%m months");// 0 months
+    echo $difftwo->format("%y years");// 0 years
+    echo $difftwo->format("%Y years"); //   00 years
+
+    echo $difftwo->format("%R%d days");// -13 days
+    echo $difftwo->format("%R%a days");// +352 days
+    
+ 
 ?>
+
 
 
 
