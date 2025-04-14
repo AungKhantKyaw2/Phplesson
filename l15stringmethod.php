@@ -1,7 +1,7 @@
 <?php
 
 $words ="Save Myanmar";
-echo strlen($words);
+echo strlen($words);//12
 
 //=>str_word_count(string) Function
 //=>str_word_count(string,return) Function
