@@ -171,13 +171,13 @@ echo "<pre>".print_r(array_map("gendertwo",$males,$females),true)."</pre>";//([0
 
 //=>sort(array) Function
 $carbrands = ["volov","bzm","toyota","mazda","suzuki"];
-sort($carbands);
-echo "<pre>" .print_r($cars,true) ."</pre>";////(   [0] => bzm    [1] => mazda    [2] => suzuki    [3] => toyota    [4] => volov)
+sort($carbrands);
+echo "<pre>" .print_r($carbrands,true) ."</pre>";////(   [0] => bzm    [1] => mazda    [2] => suzuki    [3] => toyota    [4] => volov)
 
 
 $luckynumbers=[10,50,"80",90,35,"100",130,"250",70];
 sort($luckynumbers);
-echo "<pre>" .print_r($numbers,true)."</pre>";//(    [0] => 10    [1] => 35    [2] => 50    [3] => 70    [4] => 80    [5] => 90    [6] => 100    [7] => 130    [8] => 250)
+echo "<pre>" .print_r($luckynumbers,true)."</pre>";//(    [0] => 10    [1] => 35    [2] => 50    [3] => 70    [4] => 80    [5] => 90    [6] => 100    [7] => 130    [8] => 250)
 
 //=>array_multisort(array) Function
 $carbrands = ["volov","bzm","toyota","mazda","suzuki"];
@@ -320,16 +320,19 @@ echo "<pre>".print_r(array_slice($candycolors,2,5,true),true)  ."</pre>"; //[2] 
 
  
 //=>array_splice(array,index) Function
-//=>array_slice(array,index,length) Function
-//=>array_slice(array,index,length,array) Function
+//=>array_splice(array,index,length) Function
+//=>array_splice(array,index,length,array) Function
 
-$shirtcolors=["red","green","blue","yellow","pink"];
+$shirtcolors = ["red", "green", "blue", "yellow", "pink"];
+echo "<pre>" . print_r(array_splice($shirtcolors, 0), true) . "</pre>"; //[red to pink]
 
-echo "<pre>".print_r(array_splice($shirtcolors,0),true)."</pre>";//[red to pink]
+$shirtcolors = ["red", "green", "blue", "yellow", "pink"];
 echo "<pre>".print_r(array_splice($shirtcolors,2),true)."</pre>";//[blue to pink]
-
+$shirtcolors = ["red", "green", "blue", "yellow", "pink"];
 echo "<pre>".print_r(array_splice($shirtcolors,0,2),true)  ."</pre>";//[0] => red [1] => green
+$shirtcolors = ["red", "green", "blue", "yellow", "pink"];
 echo "<pre>".print_r(array_splice($shirtcolors,2,2),true)  ."</pre>";//[0] => blue [1] => yellow
+$shirtcolors = ["red", "green", "blue", "yellow", "pink"];
 echo "<pre>".print_r(array_splice($shirtcolors,2,5),true)  ."</pre>";//[0] => blue[1] => yellow [2] => pink
 
 $males=["aung aung","maung maung","kyaw kyaw","zaw zaw","maung maung"];
@@ -432,7 +435,7 @@ echo current($students);//kyaw kyaw
 echo prev($students);//zaw zaw
 
 echo reset($students);//aung aung
-echocurrent($students);//aung aung
+echo current($students);//aung aung
 
 
 // serialize() ,unserialize()  Function

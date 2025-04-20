@@ -27,7 +27,7 @@ for($i=0; $i<count($colorsones); $i++){
     
 
     foreach($colorsones as $colorsone){
-        echo "This is index array or manual array by for each =" $colorsone;
+        echo "This is index array or manual array by for each = $colorsone";
     }
 
     foreach($colorsones as $idx=> $colorsone){

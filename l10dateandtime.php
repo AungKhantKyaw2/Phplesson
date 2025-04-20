@@ -116,7 +116,7 @@ $date =date("z",$time);
 echo "This is format z=" .$date; //This is format z=66 // day of the year
 
 
-//=>date_create(time,optional,timezone) with dateformat(timestamp,"Y/m/d") with date_diff(new,old)
+//=>date_create(time,optional,timezone) with date_format(timestamp,"Y/m/d") with date_diff(new,old)
      //eg  date_create(timestamp,timezone_open("Asia/Yangon"))
 
      $date1 =date_create(("10-01-2025"));

@@ -15,7 +15,7 @@
     //  print $names;//error
 
 
-     echo count($names);//error
+     echo count($names);//5
      var_dump($names);
      print_r($names,false);//Array( [0] => aung aung [1] => maung maung  [2] => zaw zaw [3] => kyaw kyaw [4] => tun tun)
 
@@ -75,7 +75,7 @@ $paints = array(
 );
 
 
-echo_count($paints);
+echo count($paints);
 var_dump($paints);
 
 $maincolors=[

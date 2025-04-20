@@ -57,7 +57,7 @@ $result = preg_match("/[5-9]$/",$string);//true
 
 $result = preg_match("/[^a-z]/",$string);//true Note: it's means that not included a to z !, result is trrue cuz $string included spacing and digits
 $result = preg_match("/[^5-9]/",$string);//true Note: it's means that not included 5 to 9 !, result is trrue cuz $string included spacing and digits
-$result = preg_match("/[^0-4]",$string);//true Note: it's means that not included 0 to 4 !, result is trrue cuz $string included spacing and digits
+$result = preg_match("/[^0-4]/",$string);//true Note: it's means that not included 0 to 4 !, result is trrue cuz $string included spacing and digits
 
 
 $result = preg_match("/@/",$string); //false
@@ -119,7 +119,7 @@ $result = preg_match("/a.{2,}m/",$string);//false  ,cuzany exact 2  or more  wor
 
 
 $string ="PHP";
-$result = preg_match("/.{2}",$string);//true  //PHP
+$result = preg_match("/.{2}/",$string);//true  //PHP
 
 $string="php";
 $result = preg_match("/hp*/",$string);//true  //php
@@ -148,7 +148,7 @@ echo $result;
    $string="Are you ready to learn PHP Framework.";
    $result =preg_replace("/php/",'javascript',$string);//Are you ready to learn PHP Framework
    $result =preg_replace("/php/i",'javascript',$string);//Are you ready to learn javascript Framework
-   $result =preg_replace("/\s",'',$string);//AreyoureadytolearnPHPFramework.
+   $result =preg_replace("/\s/",'',$string);//AreyoureadytolearnPHPFramework.
 
 
      //Bracket Expression
@@ -183,7 +183,7 @@ echo $result;
 $string ="My lucky number is 007";
 $result = preg_split("/\s/",$string);//["My","lucky","number","is","007"])
 
-echo $result;// error Array to string conversion
+// echo $result;// error Array to string conversion
 echo "<pre>".print_r($result,true)."</pre>";//=>Array ( [0] => My [1] => lucky [2] => number [3] => is [4] => 007 )
 echo $result[0];//=>My
 echo $result[4];//=>007
@@ -313,4 +313,7 @@ apache
 php
 mysql
 
+
+WordPress
+wix
 cpanel
